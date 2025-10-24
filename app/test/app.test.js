@@ -17,7 +17,8 @@ test("GET / responde con JSON esperado", async () => {
       .on("error", reject);
   });
 
-  server.close();
+  await new Promise((r) => server.close(r)); // asegurar cierre antes de terminar el test
+
   const parsed = JSON.parse(body);
   assert.equal(parsed.status, "ok");
   assert.equal(parsed.service, "demo-microservice");
