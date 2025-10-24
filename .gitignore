@@ -40,18 +40,19 @@ docker-compose.override.yml
 .docker/
 .dockerignore
 
-# ========================================
 # Terraform
-# ========================================
+.terraform/
 *.tfstate
 *.tfstate.*
-*.terraform/
-terraform.tfstate.backup
 .crash
+terraform.tfstate.backup
 override.tf
 override.tf.json
 *_override.tf
 *_override.tf.json
+
+# Mantener el candado de dependencias
+!.terraform.lock.hcl
 
 # ========================================
 # System / OS files
